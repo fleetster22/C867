@@ -11,7 +11,7 @@ using namespace std;
 #include <cstdlib>
 
 class Student;
-//#include "student.h"
+#include "student.h"
 //#include "degree.h"
 
 class Roster {

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-#include "student.h"
+//#include "student.h"
 #include "roster.h"
 
 

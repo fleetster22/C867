@@ -8,10 +8,9 @@
 using namespace std;;
 
 
-#include "student.h"
+//#include "student.h"
 #include "roster.h"
-#include "degree.h"
-
+//#include "degree.h"
 
 
 int main() {
