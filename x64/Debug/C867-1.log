@@ -1,31 +1,21 @@
-﻿Build started 1/11/2022 6:14:14 PM.
+﻿Build started 1/11/2022 6:54:17 PM.
 Logging verbosity is set to: Normal.     1>Project "C:\Users\Critters\source\repos\C867-1\C867-1.vcxproj" on node 2 (Build target(s)).
      1>InitializeBuildStatus:
          Touching "x64\Debug\C867-1.tlog\unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt main.cpp roster.cpp
+         C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.30.30705\bin\HostX64\x64\CL.exe /c /ZI /JMC /nologo /W3 /WX- /diagnostics:column /sdl /Od /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /permissive- /Fo"x64\Debug\\" /Fd"x64\Debug\vc143.pdb" /external:W3 /Gd /TP /FC /errorReport:prompt main.cpp
          main.cpp
-     1>C:\Users\Critters\source\repos\C867-1\main.cpp(43,71): error C2660: 'Roster::add': function does not take 1 arguments
+     1>C:\Users\Critters\source\repos\C867-1\main.cpp(41,71): error C2660: 'Roster::add': function does not take 1 arguments
        C:\Users\Critters\source\repos\C867-1\roster.h(29,10): message : see declaration of 'Roster::add'
-         roster.cpp
-     1>C:\Users\Critters\source\repos\C867-1\roster.cpp(133,36): warning C4552: '+': result of expression not used
-     1>C:\Users\Critters\source\repos\C867-1\roster.cpp(134,78): warning C4390: ';': empty controlled statement found; is this the intent?
-         Generating Code...
      1>Done Building Project "C:\Users\Critters\source\repos\C867-1\C867-1.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
        "C:\Users\Critters\source\repos\C867-1\C867-1.vcxproj" (Build target) (1) ->
        (ClCompile target) -> 
-         C:\Users\Critters\source\repos\C867-1\roster.cpp(133,36): warning C4552: '+': result of expression not used
-         C:\Users\Critters\source\repos\C867-1\roster.cpp(134,78): warning C4390: ';': empty controlled statement found; is this the intent?
+         C:\Users\Critters\source\repos\C867-1\main.cpp(41,71): error C2660: 'Roster::add': function does not take 1 arguments
 
-
-       "C:\Users\Critters\source\repos\C867-1\C867-1.vcxproj" (Build target) (1) ->
-       (ClCompile target) -> 
-         C:\Users\Critters\source\repos\C867-1\main.cpp(43,71): error C2660: 'Roster::add': function does not take 1 arguments
-
-    2 Warning(s)
+    0 Warning(s)
     1 Error(s)
 
-Time Elapsed 00:00:00.73
+Time Elapsed 00:00:00.36

@@ -14,7 +14,6 @@ using namespace std;;
 
 
 
-
 int main() {
 
     const string studentData[] =
@@ -32,15 +31,13 @@ int main() {
     cout << "Name: Anaka Norfleet" << endl;
 
     
-
-
     Roster classRoster; // DO NOT CHANGE
     int numRoster = 5;
     //int numOfCourses = 3; 
 
     for (int i = 0; i < numRoster; i++) classRoster.parse(studentData[i]); 
 
-    for (int i = 0; i < numRoster; i++) classRoster.add(studentData[i]);
+    for (int i = 0; i < numRoster; i++) classRoster.add(studentData[i]); ///Need to fix this
 
     cout << "Roster of all students: " << endl;
     classRoster.printAll();
@@ -48,8 +45,6 @@ int main() {
     //for (int i = 0; i < numOfCourses; i++) {
     //    DegreeProgram degreeProgram[i] = program[i];
     //}
-
-
 
 
     cout << "Students with invald emails: ";
