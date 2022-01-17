@@ -2,7 +2,7 @@
 #include <array>
 #include <vector>
 #include <cstdlib>
-
+#include <iostream>
 #include "student.h"
 
 using namespace std;
@@ -10,15 +10,19 @@ using namespace std;
 
 
 Student::Student() {
-    int numCourses = 3.0;
+    int numCourses = 3;
     studentID = "";
     firstName = "";
     lastName = "";
     emailAddress = "";
     age = 0;
-    //courseDays[numCourses] = {0, 0, 0};
+    daysInCourse1 = 0;
+    daysInCourse2 = 0;
+    daysInCourse3 = 0;
+    //courses[numCourses] = {0, 0, 0};
     for (int i = 0; i < numCourses; i++) this->courses[i] = 0; 
     degreeProgram = DegreeProgram::SOFTWARE;
+    
 }
 
 Student::Student(string studentID, string firstName, string lastName, string emailAddress,
@@ -31,7 +35,6 @@ Student::Student(string studentID, string firstName, string lastName, string ema
     this->daysInCourse1 = daysInCourse1;
     this->daysInCourse2 = daysInCourse2;
     this->daysInCourse3 = daysInCourse3;
-    this->degreeProgram = degreeProgram;
 }
 
 Student::~Student() {
@@ -92,7 +95,23 @@ DegreeProgram Student::GetDegreeProgram() {
 }
 
 void Student::print() {
+    string degree = "SOFTWARE";
+    
+    if (degree == "NETWORK") {
+        degreeProgram = DegreeProgram::NETWORK;
+    } else if (degree == "SECURITY") {
+        degreeProgram = DegreeProgram::SECURITY;
+     }
 
+    cout << GetStudentID() << "\t";
+    cout << "First Name: " << GetFirstName() << "\t";
+    cout << "Last Name: " << GetLastName() << "\t";
+    cout << "Email: " << GetEmail() << "\t";
+    cout << "Age: " << GetAge() << "\t";
+    cout << "daysInCourse: " << GetCourseDays() << "\t";
+    cout << "Degree Program: " << degree;
+
+    cout << endl;
 }
 
 //for (int i = 0; i < numOfDaySize; i++) this->numOfDays[i] = 0;

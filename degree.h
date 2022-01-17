@@ -5,9 +5,9 @@
 #include <string>
 using namespace std;
 
-enum DegreeProgram { SECURITY, NETWORK, SOFTWARE };
+enum class DegreeProgram { SECURITY, NETWORK, SOFTWARE };
 
-extern string program[] = { "SECURITY", "NETWORK", "SOFTWARE" };
+//extern string program[] = { "Security", "Network", "Software" };
 
 
 #endif

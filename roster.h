@@ -1,24 +1,23 @@
-//#ifndef ROSTER_H
-//#define ROSTER_H
-#pragma once
+#ifndef ROSTER_H
+#define ROSTER_H
+
 
 using namespace std;
 
 #include <string>
 #include <iostream>
 #include <array>
-#include <vector>
-#include <cstdlib>
 
-class Student;
+
+//class Student;
 #include "student.h"
-//#include "degree.h"
+
 
 class Roster {
 
 public:
-  
-    Student* classRosterArray[5];
+
+    Student* classRosterArray[5] = {};
 
     Roster();
 
@@ -39,17 +38,17 @@ public:
 
     void printByDegreeProgram(DegreeProgram degreeProgram);
 
+
 private:
 
-    Student student;
-    string id, fName, lName, email;
-    int studentAge, course1Days, course2Days, course3Days;
-    //DegreeProgram degreeProgram;
+    //Student student;
+    string studentID, firstName, lastName, emailAddress;
+    int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster;
     int courses[3];
-    int numRoster = 5;
     double numClasses;
-
+    int capacity;
+    DegreeProgram degreeProgram;
 
 
 };
-//#endif
+#endif

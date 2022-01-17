@@ -36,9 +36,9 @@ int main() {
 
     for (int i = 0; i < numRoster; i++) classRoster.parse(studentData[i]); 
 
-    for (int i = 0; i < numRoster; i++) classRoster.add(studentData[i]); ///Need to fix this
+    //for (int i = 0; i < numRoster; i++) classRoster.add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram); ///Need to fix this
 
-    cout << "Roster of all students: " << endl;
+    
     classRoster.printAll();
 
     //for (int i = 0; i < numOfCourses; i++) {
@@ -46,7 +46,6 @@ int main() {
     //}
 
 
-    cout << "Students with invald emails: ";
     classRoster.printInvalidEmails();
 
     for (int i = 0; i < numRoster; i++) {

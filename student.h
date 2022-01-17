@@ -1,6 +1,5 @@
-#pragma once
-//#ifndef STUDENT_H
-//#define STUDENT_H
+#ifndef STUDENT_H
+#define STUDENT_H
 
 #include <string>
 #include <array>
@@ -48,10 +47,10 @@ public:
 
 
 private:
-    string studentID, firstName, lastName, emailAddress;
+    string studentID, firstName, lastName, emailAddress, degreeType;
     int age, numCourses, daysInCourse1, daysInCourse2, daysInCourse3;
     int courses[3];  //DO NOT CHANGE
     DegreeProgram degreeProgram;
 };
 
-//#endif
+#endif
