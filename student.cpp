@@ -11,15 +11,15 @@ using namespace std;
 
 Student::Student() {
     int numCourses = 3;
-    studentID = "";
-    firstName = "";
-    lastName = "";
-    emailAddress = "";
-    age = 0;
-    daysInCourse1 = 0;
-    daysInCourse2 = 0;
-    daysInCourse3 = 0;
-    //courses[numCourses] = {0, 0, 0};
+    this->studentID = "";
+    this->firstName = "";
+    this->lastName = "";
+    this->emailAddress = "";
+    this->age = 0;
+    //this->daysInCourse1 = 0;
+    //this->daysInCourse2 = 0;
+    //this->daysInCourse3 = 0;
+    this->courses[3] = {};
     for (int i = 0; i < numCourses; i++) this->courses[i] = 0; 
     degreeProgram = DegreeProgram::SOFTWARE;
     
