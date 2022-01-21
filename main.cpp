@@ -27,44 +27,37 @@ int main() {
     cout << "C867 Scripting & Programming: Applications" << endl;
     cout << "Language: C++" << endl;
     cout << "Student ID: 001528537" << endl;
-    cout << "Name: Anaka Norfleet" << endl;
+    cout << "Name: Anaka Norfleet" << endl << endl << endl;
+
+
 
     
     Roster classRoster; // DO NOT CHANGE
-    int numRoster = 5;
-    //int numOfCourses = 3; 
 
-    for (int i = 0; i < numRoster; i++) classRoster.parse(studentData[i]); 
+    for (int i = 0; i < sizeof(studentData) / sizeof(studentData[i]); i++) classRoster.parse(studentData[i]);
 
-    //for (int i = 0; i < numRoster; i++) classRoster.add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram); ///Need to fix this
+        classRoster.printAll();
 
-    
-    classRoster.printAll();
+        classRoster.printInvalidEmails();
+ 
 
-    //for (int i = 0; i < numOfCourses; i++) {
-    //    DegreeProgram degreeProgram[i] = program[i];
-    //}
-
-
-    classRoster.printInvalidEmails();
-
-    for (int i = 0; i < numRoster; i++) {
+    for (int i = 0; i < sizeof(classRoster.classRosterArray) / sizeof(classRoster.classRosterArray[i]); i++) {
         classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->GetStudentID());
     }
 
-    cout << "Software Students: ";
+    cout << "Software Students: " << endl;
     classRoster.printByDegreeProgram(DegreeProgram::SOFTWARE);
 
-    cout << "Removing student with ID 'A3'";
+    cout << "Removing student with ID 'A3'" << endl;
     classRoster.remove("A3");
 
-    cout << "Updated roster of all students: ";
+    cout << "Updated roster of all students: " << endl;
     classRoster.printAll();
 
     cout << "Try to remove student with ID that no longer exists" << endl;
     classRoster.remove("A3");
 
-    cout << "Releasing memory";
+    cout << "Releasing memory" << endl;
     classRoster.~Roster();
    
 

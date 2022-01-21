@@ -19,7 +19,7 @@ Student::Student() {
     //this->daysInCourse1 = 0;
     //this->daysInCourse2 = 0;
     //this->daysInCourse3 = 0;
-    this->courses[3] = {};
+    //this->courses[3] = {};
     for (int i = 0; i < numCourses; i++) this->courses[i] = 0; 
     degreeProgram = DegreeProgram::SOFTWARE;
     
@@ -102,16 +102,17 @@ void Student::print() {
     } else if (degree == "SECURITY") {
         degreeProgram = DegreeProgram::SECURITY;
      }
+   
+        cout << GetStudentID() << "\t";
+        cout << "First Name: " << GetFirstName() << "\t";
+        cout << "Last Name: " << GetLastName() << "\t";
+        cout << "Email: " << GetEmail() << "\t";
+        cout << "Age: " << GetAge() << "\t";
+        cout << "daysInCourse: " << GetCourseDays() << "\t";
+        cout << "Degree Program: " << degree;
 
-    cout << GetStudentID() << "\t";
-    cout << "First Name: " << GetFirstName() << "\t";
-    cout << "Last Name: " << GetLastName() << "\t";
-    cout << "Email: " << GetEmail() << "\t";
-    cout << "Age: " << GetAge() << "\t";
-    cout << "daysInCourse: " << GetCourseDays() << "\t";
-    cout << "Degree Program: " << degree;
-
-    cout << endl;
+        cout << endl;
+    
 }
 
 //for (int i = 0; i < numOfDaySize; i++) this->numOfDays[i] = 0;
