@@ -3,9 +3,6 @@
 
 #include <string>
 #include <array>
-//#include<iomanip>
-//#include <vector>
-//#include <cstdlib>
 
 #include "degree.h"
 
@@ -49,7 +46,7 @@ public:
 private:
     string studentID, firstName, lastName, emailAddress, degreeType;
     int age, numCourses, daysInCourse1, daysInCourse2, daysInCourse3;
-    int courses[3];  //DO NOT CHANGE
+    int courses[3]; 
     DegreeProgram degreeProgram;
 };
 

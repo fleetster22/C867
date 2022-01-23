@@ -8,8 +8,6 @@ using namespace std;
 #include <iostream>
 #include <array>
 
-
-//class Student;
 #include "student.h"
 
 

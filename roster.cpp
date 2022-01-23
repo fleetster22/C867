@@ -1,9 +1,6 @@
 #include <string>
 #include <iostream>
-//#include <iomanip>
 #include <array>
-//#include <vector>
-
 
 using namespace std;
 
@@ -26,8 +23,6 @@ Roster::Roster() {
     for (int i = 0; i < numClasses; i++) this->courses[i] = 0;
     for (int i = 0; i < numRoster; i++) this->classRosterArray[i] = nullptr;
     degreeProgram = DegreeProgram::SOFTWARE;
-    
-
 }
 
 
@@ -69,6 +64,7 @@ void Roster::parse(string studentData) {
     string program = studentData.substr(lhs, rhs - lhs);
 
     DegreeProgram degree = DegreeProgram::SOFTWARE;
+   
 
     if (program == "SECURITY") {
         degree = DegreeProgram::SECURITY;
@@ -88,7 +84,7 @@ void Roster::add(string studentID, string firstName, string lastName, string ema
     for (int i = 0; i < sizeof(classRosterArray) / sizeof(classRosterArray[i]); i++) {
         classRosterArray[i] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
     }
-   
+    
 }
 
 void Roster::remove(string studentID) {
@@ -110,7 +106,10 @@ void Roster::remove(string studentID) {
 void Roster::printAll() {
 
     for (int i = 0; i < sizeof(classRosterArray) / sizeof(classRosterArray[i]); i++) {
-        classRosterArray[i]->print();
+        if (classRosterArray[i] != nullptr)
+        {
+            classRosterArray[i]->print();
+        }
     }
 }
 

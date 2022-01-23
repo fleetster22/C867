@@ -1,6 +1,5 @@
 #include <string>
 #include <array>
-#include <vector>
 #include <cstdlib>
 #include <iostream>
 #include "student.h"
@@ -16,10 +15,7 @@ Student::Student() {
     this->lastName = "";
     this->emailAddress = "";
     this->age = 0;
-    //this->daysInCourse1 = 0;
-    //this->daysInCourse2 = 0;
-    //this->daysInCourse3 = 0;
-    //this->courses[3] = {};
+   
     for (int i = 0; i < numCourses; i++) this->courses[i] = 0; 
     degreeProgram = DegreeProgram::SOFTWARE;
     
@@ -103,17 +99,19 @@ void Student::print() {
         degreeProgram = DegreeProgram::SECURITY;
      }
    
+    int avgDays = (daysInCourse1 + daysInCourse2 + daysInCourse3) / 3;
         cout << GetStudentID() << "\t";
         cout << "First Name: " << GetFirstName() << "\t";
         cout << "Last Name: " << GetLastName() << "\t";
         cout << "Email: " << GetEmail() << "\t";
         cout << "Age: " << GetAge() << "\t";
-        cout << "daysInCourse: " << GetCourseDays() << "\t";
+        cout << "daysInCourse: " << avgDays << "\t";
         cout << "Degree Program: " << degree;
 
         cout << endl;
     
 }
+
 
 //for (int i = 0; i < numOfDaySize; i++) this->numOfDays[i] = 0;
 //for (int i = 0; i < numOfDaySize; i++) this->numOfDays[i] = numOfDays[i];
