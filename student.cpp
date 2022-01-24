@@ -15,7 +15,6 @@ Student::Student() {
     this->lastName = "";
     this->emailAddress = "";
     this->age = 0;
-   
     for (int i = 0; i < numCourses; i++) this->courses[i] = 0; 
     degreeProgram = DegreeProgram::SOFTWARE;
     
@@ -31,6 +30,7 @@ Student::Student(string studentID, string firstName, string lastName, string ema
     this->daysInCourse1 = daysInCourse1;
     this->daysInCourse2 = daysInCourse2;
     this->daysInCourse3 = daysInCourse3;
+    this->degreeProgram = degreeProgram;
 }
 
 Student::~Student() {
@@ -91,21 +91,34 @@ DegreeProgram Student::GetDegreeProgram() {
 }
 
 void Student::print() {
-    string degree = "SOFTWARE";
+    string degree;
     
+    if (degreeProgram == DegreeProgram::NETWORK) {
+        degree = "NETWORK";
+    } else if (degreeProgram == DegreeProgram::SOFTWARE) {
+        degree = "SOFTWARE";
+    } else if (degreeProgram == DegreeProgram::SECURITY) {
+        degree = "SECURITY";
+    }
+    
+    /*
     if (degree == "NETWORK") {
         degreeProgram = DegreeProgram::NETWORK;
     } else if (degree == "SECURITY") {
         degreeProgram = DegreeProgram::SECURITY;
-     }
-   
-    int avgDays = (daysInCourse1 + daysInCourse2 + daysInCourse3) / 3;
+    }
+    else if (degree == "SOFTWARE") {
+        degreeProgram = DegreeProgram::SOFTWARE;
+    }
+    */
+
+        //int daysinCourse = { daysInCourse1 + daysInCourse2 + daysInCourse3 };
         cout << GetStudentID() << "\t";
         cout << "First Name: " << GetFirstName() << "\t";
         cout << "Last Name: " << GetLastName() << "\t";
         cout << "Email: " << GetEmail() << "\t";
         cout << "Age: " << GetAge() << "\t";
-        cout << "daysInCourse: " << avgDays << "\t";
+        cout << "daysInCourse: " << "{ " << daysInCourse1 << ", " << daysInCourse2 << ", " << daysInCourse3 << " }" << "\t";
         cout << "Degree Program: " << degree;
 
         cout << endl;

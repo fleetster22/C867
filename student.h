@@ -44,7 +44,7 @@ public:
 
 
 private:
-    string studentID, firstName, lastName, emailAddress, degreeType;
+    string studentID, firstName, lastName, emailAddress;
     int age, numCourses, daysInCourse1, daysInCourse2, daysInCourse3;
     int courses[3]; 
     DegreeProgram degreeProgram;

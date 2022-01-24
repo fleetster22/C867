@@ -38,7 +38,7 @@ int main() {
         classRoster.printInvalidEmails();
  
 
-    for (int i = 0; i < sizeof(classRoster.classRosterArray) / sizeof(classRoster.classRosterArray[i]); i++) {
+    for (int i = 0; i < numRoster; i++) {
         classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->GetStudentID());
     }
 
@@ -60,3 +60,4 @@ int main() {
 
     return 0;
 }
+//sizeof(classRoster.classRosterArray) / sizeof(classRoster.classRosterArray[i])

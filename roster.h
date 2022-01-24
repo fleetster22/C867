@@ -42,9 +42,8 @@ private:
     //Student student;
     string studentID, firstName, lastName, emailAddress;
     int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster;
-    int courses[3];
+    int* courses[3];
     double numClasses;
-    int capacity;
     DegreeProgram degreeProgram;
 
 
