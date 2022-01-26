@@ -14,8 +14,8 @@ using namespace std;
 class Roster {
 
 public:
-
-    Student* classRosterArray[5] = {};
+    
+    Student *classRosterArray[5] = {nullptr, nullptr, nullptr, nullptr, nullptr};
 
     Roster();
 
@@ -43,7 +43,7 @@ private:
     string studentID, firstName, lastName, emailAddress;
     int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster;
     int* courses[3];
-    double numClasses;
+    int rosterSize = sizeof(classRosterArray) / sizeof(classRosterArray[0]);
     DegreeProgram degreeProgram;
 
 

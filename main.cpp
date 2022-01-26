@@ -33,9 +33,9 @@ int main() {
 
     for (int i = 0; i < numRoster; i++) classRoster.parse(studentData[i]);
 
-        classRoster.printAll();
+    classRoster.printAll();
 
-        classRoster.printInvalidEmails();
+    classRoster.printInvalidEmails();
  
 
     for (int i = 0; i < numRoster; i++) {
