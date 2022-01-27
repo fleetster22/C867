@@ -19,8 +19,11 @@ Roster::Roster() {
     this->daysInCourse1 = 0;
     this->daysInCourse2 = 0;
     this->daysInCourse3 = 0;
+    
     *this->courses = { };    //for (int i = 0; i < numClasses; i++) this->courses[i] = 0;
+    classRosterArray = new Student * [5];
     for (int i = 0; i < rosterSize; i++) this->classRosterArray[i] = { nullptr };
+    //*this->classRosterArray = nullptr;
     degreeProgram = DegreeProgram::SOFTWARE;
     
 }
@@ -84,13 +87,17 @@ void Roster::parse(string studentData) {
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
     //add data to all fields 
-    
-    //int courses[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
-    
-    for (int i = 0; i < 5; i++) {
-        classRosterArray[i] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
-        classRosterArray[i]->print();
-    }
+    //*this->courses[0] = daysInCourse1;
+    //*this->courses[1] = daysInCourse2;
+    //*this->courses[2] = daysInCourse3;
+
+    int i = 0;
+    //for (int i = 0; i < 5; i++) {
+        //if (classRosterArray[i] = nullptr) {
+            classRosterArray[i] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+            //classRosterArray[i]->print();
+        //}
+    //}
 }
 
 void Roster::printAll() {

@@ -15,7 +15,7 @@ class Roster {
 
 public:
     
-    Student *classRosterArray[5] = {nullptr, nullptr, nullptr, nullptr, nullptr};
+    Student **classRosterArray;
 
     Roster();
 
