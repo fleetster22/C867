@@ -15,9 +15,13 @@ class Roster {
 
 public:
     
-    Student **classRosterArray;
+    int lastIndex, size;
+
+    Student *classRosterArray[5];
 
     Roster();
+
+    Roster(int size);
 
     ~Roster();
 
@@ -36,15 +40,16 @@ public:
 
     void printByDegreeProgram(DegreeProgram degreeProgram);
 
-
 private:
 
     //Student student;
-    string studentID, firstName, lastName, emailAddress;
-    int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster;
-    int* courses[3];
+    //string studentID, firstName, lastName, emailAddress;
+    //int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster, numCourses;
+    //int *courses[3];
     int rosterSize = sizeof(classRosterArray) / sizeof(classRosterArray[0]);
     DegreeProgram degreeProgram;
+    int index = 0;
+    int numRoster = 5;
 
 
 };

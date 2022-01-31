@@ -26,9 +26,9 @@ int main() {
     cout << "Student ID: 001528537" << endl;
     cout << "Name: Anaka Norfleet" << endl << endl << endl;
 
-    int numRoster = 5;
+    const int numRoster = 5;
 
-    
+     
     Roster classRoster; // DO NOT CHANGE
 
     for (int i = 0; i < numRoster; i++) classRoster.parse(studentData[i]);

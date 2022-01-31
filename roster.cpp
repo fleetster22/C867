@@ -10,93 +10,96 @@ using namespace std;
 
 
 Roster::Roster() {
-    numRoster = 5;
-    this->studentID = "";
-    this->firstName = "";
-    this->lastName = "";
-    this->emailAddress = "";
-    this->age = 0;
-    this->daysInCourse1 = 0;
-    this->daysInCourse2 = 0;
-    this->daysInCourse3 = 0;
     
-    *this->courses = { };    //for (int i = 0; i < numClasses; i++) this->courses[i] = 0;
-    classRosterArray = new Student * [5];
+    this->size = 0;
+    this->degreeProgram = DegreeProgram::SOFTWARE;
+    this->lastIndex = -1;
     for (int i = 0; i < rosterSize; i++) this->classRosterArray[i] = { nullptr };
-    //*this->classRosterArray = nullptr;
-    degreeProgram = DegreeProgram::SOFTWARE;
-    
+}
+
+Roster::Roster(int size) {
+    this->size = size;
+    this->lastIndex = -1;
+    this->degreeProgram = DegreeProgram::SOFTWARE;
+    for (int i = 0; i < rosterSize; i++) this->classRosterArray[i] = { nullptr };
 }
 
 
+
+
 void Roster::parse(string studentData) {
+    if(lastIndex < numRoster){
+        lastIndex++;
+    //for(int i = 0; i < numRoster; i++) {
+        
+        int courses{ numRoster };
+        
+        size_t rhs = studentData.find(",");
+        string studentID = studentData.substr(0, rhs);
 
-    size_t rhs = studentData.find(",");
-    string studentID = studentData.substr(0, rhs);
+        size_t lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        string firstName = studentData.substr(lhs, rhs - lhs);
 
-    size_t lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    string firstName = studentData.substr(lhs, rhs - lhs);
+        lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        string lastName = studentData.substr(lhs, rhs - lhs);
 
-    lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    string lastName = studentData.substr(lhs, rhs - lhs);
+        lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        string emailAddress = studentData.substr(lhs, rhs - lhs);
 
-    lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    string emailAddress = studentData.substr(lhs, rhs - lhs);
+        lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        int age = stoi(studentData.substr(lhs, rhs - lhs));
 
-    lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    int age = stoi(studentData.substr(lhs, rhs - lhs));
+        lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        int daysInCourse1 = stoi(studentData.substr(lhs, rhs - lhs));
 
-    lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    int daysInCourse1 = stoi(studentData.substr(lhs, rhs - lhs));
+        lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        int daysInCourse2 = stoi(studentData.substr(lhs, rhs - lhs));
 
-    lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    int daysInCourse2 = stoi(studentData.substr(lhs, rhs - lhs));
+        lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        int daysInCourse3 = stoi(studentData.substr(lhs, rhs - lhs));
 
-    lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    int daysInCourse3 = stoi(studentData.substr(lhs, rhs - lhs));
+        lhs = rhs + 1;
+        rhs = studentData.find(",", lhs);
+        string program = studentData.substr(lhs, rhs - lhs);
 
-    lhs = rhs + 1;
-    rhs = studentData.find(",", lhs);
-    string program = studentData.substr(lhs, rhs - lhs);
+        //DegreeProgram degree = DegreeProgram::SOFTWARE;
 
-    //DegreeProgram degree = DegreeProgram::SOFTWARE;
-   
 
-    if (program == "SECURITY") {
-        degreeProgram = DegreeProgram::SECURITY;
-    } else if (program == "NETWORK") {
-        degreeProgram = DegreeProgram::NETWORK;
+        if (program == "SECURITY") {
+            degreeProgram = DegreeProgram::SECURITY;
+        }
+        else if (program == "NETWORK") {
+            degreeProgram = DegreeProgram::NETWORK;
+        }
+        else if (program == "SOFTWARE") {
+            degreeProgram = DegreeProgram::SOFTWARE;
+        }
+
+
+        add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+        cout << studentID << firstName << lastName << emailAddress << age << daysInCourse1 << daysInCourse2 << daysInCourse3 << program << endl;
     }
-    else if (program == "SOFTWARE") {
-        degreeProgram = DegreeProgram::SOFTWARE;
-    }
-    
-   
-    add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
-    //cout << studentID << firstName << lastName << emailAddress << age << daysInCourse1 << daysInCourse2 << daysInCourse3 << program << endl;
 }
 
 // Add Student objects to array
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
     //add data to all fields 
-    //*this->courses[0] = daysInCourse1;
-    //*this->courses[1] = daysInCourse2;
-    //*this->courses[2] = daysInCourse3;
-
-    int i = 0;
+    int courses[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
+    
     //for (int i = 0; i < 5; i++) {
-        //if (classRosterArray[i] = nullptr) {
-            classRosterArray[i] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
-            //classRosterArray[i]->print();
+    //if (classRosterArray[index] = nullptr) {
+        classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, courses, degreeProgram);
+            //classRosterArray[i]->print();  // for testing
         //}
+        index++;
     //}
 }
 
@@ -110,7 +113,7 @@ void Roster::printAll() {
 
 void Roster::printAverageDaysInCourse(string studentID) {
     double numClasses = 3.0;
-    for (int i = 0; i < numRoster; i++) {
+    for (int i = 0; i < Roster::lastIndex; i++) {
         if ((classRosterArray[i])->GetStudentID() == studentID) {
             double avgDays = 0.0;
             avgDays = ((classRosterArray[i])->GetCourseDays()[0] + (classRosterArray[i])->GetCourseDays()[1] + classRosterArray[i])->GetCourseDays()[2] / numClasses;

@@ -9,24 +9,25 @@ using namespace std;
 
 
 Student::Student() {
-    int numCourses = 3;
     this->studentID = "";
     this->firstName = "";
     this->lastName = "";
     this->emailAddress = "";
     this->age = 0;
     for (int i = 0; i < numCourses; i++) this->courses[i] = 0; 
-    degreeProgram = DegreeProgram::SOFTWARE;
+    this->degreeProgram = DegreeProgram::SOFTWARE;
     
 }
 
 Student::Student(string studentID, string firstName, string lastName, string emailAddress,
-    int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
+    int age, int courses[], DegreeProgram degreeProgram) {
+
     this->studentID = studentID;
     this->firstName = firstName;
     this->lastName = lastName;
     this->emailAddress = emailAddress;
     this->age = age;
+    for (int i = 0; i < 3; i++) this->courses[i] = courses[i];
     this->daysInCourse1 = daysInCourse1;
     this->daysInCourse2 = daysInCourse2;
     this->daysInCourse3 = daysInCourse3;
@@ -71,13 +72,8 @@ int Student::GetAge() {
     return this->age;
 }
 
-void Student::SetCourseDays(int daysInCourse1, int daysInCourse2, int daysInCourse3) {
-    this->daysInCourse1 = daysInCourse1;
-    this->daysInCourse2 = daysInCourse2;
-    this->daysInCourse3 = daysInCourse3;
-    courses[0] = daysInCourse1;
-    courses[1] = daysInCourse2;
-    courses[2] = daysInCourse3;
+void Student::SetCourseDays(int courses[]) {
+    for (int i = 0; i < numCourses; i++) this->courses[i] = courses[i];
 }
 int* Student::GetCourseDays() {
     return this->courses;

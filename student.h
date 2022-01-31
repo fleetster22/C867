@@ -11,11 +11,12 @@ using namespace std;
 
 class Student {
 public:
+    const static int numCourses = 3;
 
     Student();
 
     Student(string studentID, string firstName, string lastName, string emailAddress,
-        int age, int daysInCourse1, int daysInCourse2, int daysIncourse3, DegreeProgram degreeProgram);
+        int age, int courses[], DegreeProgram degreeProgram);
 
     ~Student();
 
@@ -34,7 +35,7 @@ public:
     void SetAge(int age);
     int GetAge();
 
-    void SetCourseDays(int daysInCourse1, int daysInCourse2, int daysInCourse3);
+    void SetCourseDays(int courses[]);
     int* GetCourseDays();
 
     void SetDegreeProgram(DegreeProgram degreeProgram);
@@ -45,8 +46,8 @@ public:
 
 private:
     string studentID, firstName, lastName, emailAddress;
-    int age, numCourses, daysInCourse1, daysInCourse2, daysInCourse3;
-    int courses[3]; 
+    int age, daysInCourse1, daysInCourse2, daysInCourse3;
+    int courses[numCourses];
     DegreeProgram degreeProgram;
 };
 
