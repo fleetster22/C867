@@ -35,7 +35,7 @@ public:
     void SetAge(int age);
     int GetAge();
 
-    void SetCourseDays(int courses[]);
+    void SetCourseDays(int courseDays[]);
     int* GetCourseDays();
 
     void SetDegreeProgram(DegreeProgram degreeProgram);
@@ -46,7 +46,7 @@ public:
 
 private:
     string studentID, firstName, lastName, emailAddress;
-    int age, daysInCourse1, daysInCourse2, daysInCourse3;
+    int age; //daysInCourse1, daysInCourse2, daysInCourse3;
     int courses[numCourses];
     DegreeProgram degreeProgram;
 };

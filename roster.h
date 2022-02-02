@@ -45,12 +45,12 @@ private:
     //Student student;
     //string studentID, firstName, lastName, emailAddress;
     //int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster, numCourses;
-    //int *courses[3];
+    //int courses[3];
     int rosterSize = sizeof(classRosterArray) / sizeof(classRosterArray[0]);
     DegreeProgram degreeProgram;
     int index = 0;
     int numRoster = 5;
-
+    const int numCourses = 3;
 
 };
 #endif

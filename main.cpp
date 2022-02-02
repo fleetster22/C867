@@ -34,25 +34,33 @@ int main() {
     for (int i = 0; i < numRoster; i++) classRoster.parse(studentData[i]);
 
     classRoster.printAll();
+    cout << endl;
 
     classRoster.printInvalidEmails();
+    cout << endl;
  
 
     for (int i = 0; i < numRoster; i++) {
         classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->GetStudentID());
     }
+    cout << endl;
 
     cout << "Software Students: " << endl;
-    classRoster.printByDegreeProgram(DegreeProgram::SOFTWARE);
+    for (int i = 0; i < numRoster; i++) {
+        classRoster.printByDegreeProgram(DegreeProgram::SOFTWARE);
+    }
+    cout << endl;
 
-    cout << "Removing student with ID 'A3'" << endl;
     classRoster.remove("A3");
+    cout << endl;
 
     cout << "Updated roster of all students: " << endl;
     classRoster.printAll();
+    cout << endl;
 
     cout << "Try to remove student with ID that no longer exists" << endl;
     classRoster.remove("A3");
+    cout << endl;
 
     cout << "Releasing memory" << endl;
     classRoster.~Roster();
