@@ -17,7 +17,7 @@ public:
     
     int lastIndex, size;
 
-    Student *classRosterArray[5];
+    Student* classRosterArray[5] = { nullptr, nullptr, nullptr, nullptr, nullptr };
 
     Roster();
 

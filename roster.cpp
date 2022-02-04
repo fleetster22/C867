@@ -14,8 +14,8 @@ Roster::Roster() {
     this->size = 0;
     this->degreeProgram = DegreeProgram::SOFTWARE;
     this->lastIndex = -1;
-    *this->classRosterArray = nullptr;
-    //for (int i = 0; i < rosterSize; i++) this->classRosterArray[i] = { nullptr };
+    //*this->classRosterArray = nullptr;
+    //for (int i = 0; i < rosterSize; i++) this->classRosterArray[i] = nullptr;
     //for (int i = 0; i < numCourses; i++) this->courses[i] = 0;
 }
 
@@ -23,7 +23,7 @@ Roster::Roster(int size) {
     this->size = size;
     this->lastIndex = -1;
     this->degreeProgram = DegreeProgram::SOFTWARE;
-    for (int i = 0; i < rosterSize; i++) this->classRosterArray[i] = { nullptr };
+    //for (int i = 0; i < rosterSize; i++) this->classRosterArray[i] = nullptr;
     //for (int i = 0; i < numCourses; i++) this->courses[i] = courses[i];
 }
 
@@ -117,7 +117,6 @@ void Roster::printAverageDaysInCourse(string studentID) {
 
     for (int i = 0; i < numRoster; i++) {
         if ((this->classRosterArray[i])->GetStudentID() == studentID) {
-            
             avgDays = ((classRosterArray[i])->GetCourseDays()[0] + (classRosterArray[i])->GetCourseDays()[1] + (classRosterArray[i])->GetCourseDays()[2]) / 3;
             cout << "Student ID: " << studentID << " has taken an average of " << avgDays << " days to complete a course." << endl;
         }
@@ -136,7 +135,7 @@ void Roster::printInvalidEmails() {
 
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
     for (int i = 0; i < numRoster; i++) {
-        if (Roster::classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
+        if (this->classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
             classRosterArray[i]->print();
         }
     }
@@ -144,10 +143,8 @@ void Roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 
 void Roster::remove(string studentID) {
     for (int i = 0; i < numRoster; i++) {
-        if (classRosterArray[i] == nullptr) {
-            cout << "No student record found for " << studentID << endl;
-        }
-        else if (classRosterArray[i]->GetStudentID() == studentID) {
+        if (classRosterArray[i]->GetStudentID() == studentID) {
+            delete classRosterArray[i];
             classRosterArray[i] = nullptr;
             cout << "Student " << studentID << " was removed." << endl;
             numRoster--;
@@ -155,18 +152,18 @@ void Roster::remove(string studentID) {
                 classRosterArray[i] = classRosterArray[i + 1];
             }
         }
+        else if (classRosterArray[i] == nullptr) {
+            cout << "No student record found" << endl;
+        }
     }
 }
 
 Roster::~Roster() {
-    
-    delete[] * classRosterArray;
-    cout << "Memory Released" << endl;
-    /*
+
     for (int i = 0; i < numRoster; i++) {
         delete classRosterArray[i];
-        classRosterArray[i] = nullptr;
     }
-    */
+cout << "Memory released" << endl;
+
 }
 //sizeof(classRosterArray) / sizeof(classRosterArray[i])
