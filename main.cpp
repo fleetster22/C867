@@ -46,9 +46,7 @@ int main() {
     cout << endl;
 
     cout << "Software Students: " << endl;
-    for (int i = 0; i < numRoster; i++) {
         classRoster.printByDegreeProgram(DegreeProgram::SOFTWARE);
-    }
     cout << endl;
 
     classRoster.remove("A3");

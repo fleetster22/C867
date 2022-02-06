@@ -27,13 +27,12 @@ Student::Student(string studentID, string firstName, string lastName, string ema
     this->lastName = lastName;
     this->emailAddress = emailAddress;
     this->age = age;
-    for (int i = 0; i < 3; i++) {
-        this->courses[i] = courseDays[i];
+    for (int i = 0; i < numCourses; i++) this->courses[i] = courseDays[i];
         //this->daysInCourse1 = daysInCourse1;
         //this->daysInCourse2 = daysInCourse2;
         //this->daysInCourse3 = daysInCourse3;
-        this->degreeProgram = degreeProgram;
-    }
+    this->degreeProgram = degreeProgram;
+    
 }
 
 
@@ -101,7 +100,7 @@ Student::Student(string studentID, string firstName, string lastName, string ema
         else if (degreeProgram == DegreeProgram::SECURITY) {
             degree = "SECURITY";
         }
-
+        
 
         cout << GetStudentID() << "\t";
         cout << "First Name: " << GetFirstName() << "\t";

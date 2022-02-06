@@ -14,10 +14,9 @@ using namespace std;
 class Roster {
 
 public:
-    
-    int lastIndex, size;
+    int size;
 
-    Student* classRosterArray[5] = { nullptr, nullptr, nullptr, nullptr, nullptr };
+    Student* classRosterArray[5];
 
     Roster();
 
@@ -46,11 +45,13 @@ private:
     //string studentID, firstName, lastName, emailAddress;
     //int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster, numCourses;
     //int courses[3];
-    int rosterSize = sizeof(classRosterArray) / sizeof(classRosterArray[0]);
-    DegreeProgram degreeProgram;
+    //int rosterSize = sizeof(classRosterArray) / sizeof(classRosterArray[0]);
     int index = 0;
+    DegreeProgram degreeProgram;
     int numRoster = 5;
     const int numCourses = 3;
+    
+
 
 };
 #endif
