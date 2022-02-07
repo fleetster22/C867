@@ -11,10 +11,12 @@ using namespace std;
 
 class Student {
 public:
+    //for courses array
     const static int numCourses = 3;
 
     Student();
 
+    //Step D1 & D2
     Student(string studentID, string firstName, string lastName, string emailAddress,
         int age, int courses[], DegreeProgram degreeProgram);
 
@@ -46,7 +48,7 @@ public:
 
 private:
     string studentID, firstName, lastName, emailAddress;
-    int age; //daysInCourse1, daysInCourse2, daysInCourse3;
+    int age;
     int courses[numCourses];
     DegreeProgram degreeProgram;
 };

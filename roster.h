@@ -14,13 +14,12 @@ using namespace std;
 class Roster {
 
 public:
-    int size;
 
-    Student* classRosterArray[5];
+    //array of pointers, Step E1
+    Student* classRosterArray[5] = {nullptr, nullptr, nullptr, nullptr, nullptr};
+    Student** Students;
 
     Roster();
-
-    Roster(int size);
 
     ~Roster();
 
@@ -41,17 +40,8 @@ public:
 
 private:
 
-    //Student student;
-    //string studentID, firstName, lastName, emailAddress;
-    //int age, daysInCourse1, daysInCourse2, daysInCourse3, numRoster, numCourses;
-    //int courses[3];
-    //int rosterSize = sizeof(classRosterArray) / sizeof(classRosterArray[0]);
-    int index = 0;
+    int index;
     DegreeProgram degreeProgram;
-    int numRoster = 5;
-    const int numCourses = 3;
-    
-
-
 };
+
 #endif

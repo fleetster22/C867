@@ -11,26 +11,12 @@ using namespace std;
 
 Roster::Roster() {
     
-    this->size = 0;
     this->index = 0;
     this->degreeProgram = DegreeProgram::SOFTWARE;
-    //this->classRosterArray = nullptr;
-    for (int i = 0; i < numRoster; i++) this->classRosterArray[i] = nullptr;
-    //for (int i = 0; i < numCourses; i++) this->courses[i] = 0;
+    this->Students = nullptr;
 }
 
-Roster::Roster(int size) {
-    this->size = size;
-    this->index = 0;
-    //this->classRosterArray = new Student * [size];
-    this->degreeProgram = DegreeProgram::SOFTWARE;
-    for (int i = 0; i < numRoster; i++) this->classRosterArray[i] = nullptr;
-    //for (int i = 0; i < numCourses; i++) this->courses[i] = courses[i];
-}
-
-
-
-
+//parse studentData table and add each student object to classRosterArray
 void Roster::parse(string studentData) {
 
         //Student ID    
@@ -89,36 +75,33 @@ void Roster::parse(string studentData) {
         }
 
         add(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
-        //cout << studentID << firstName << lastName << emailAddress << age << daysInCourse1 << daysInCourse2 << daysInCourse3 << program << endl;
-    //}
 }
 
-// Add Student objects to array
+// Instantiates and updates classRosterArray
 
 void Roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
-    //add data to all fields 
+
+    //add each students individual days into an array
     int courseDays[3] = { daysInCourse1, daysInCourse2, daysInCourse3 };
-    
-   
-    //if (classRosterArray[index] = nullptr) {
+     
         classRosterArray[index] = new Student(studentID, firstName, lastName, emailAddress, age, courseDays, degreeProgram);
-        //classRosterArray[index]->print();  // for testing
         index++;
-    //}
 }
 
+//print a roster of all students
 void Roster::printAll() {
     cout << "All enrolled students: " << endl;
     
-    for (int i = 0; i < numRoster; i++) {
+    for (int i = 0; i < index; i++) {
             classRosterArray[i]->print();
     }
 }
 
+//prints each students' average of three course days 
 void Roster::printAverageDaysInCourse(string studentID) {
     int avgDays = 0;
-
-    for (int i = 0; i < numRoster; i++) {
+    
+    for (int i = 0; i < index; i++) {
         if ((this->classRosterArray[i])->GetStudentID() == studentID) {
             avgDays = ((classRosterArray[i])->GetCourseDays()[0] + (classRosterArray[i])->GetCourseDays()[1] + (classRosterArray[i])->GetCourseDays()[2]) / 3;
             cout << "Student ID: " << studentID << " has taken an average of " << avgDays << " days to complete a course." << endl;
@@ -126,9 +109,10 @@ void Roster::printAverageDaysInCourse(string studentID) {
     }
 }
 
+//verifies validity of each students' email address and prints a list of students who have invalid emails
 void Roster::printInvalidEmails() {
     cout << "Students with invalid emails: " << endl;
-    for (int i = 0; i < numRoster; i++) {
+    for (int i = 0; i < index; i++) {
         string email = classRosterArray[i]->GetEmail();
         if (email.find('@') == string::npos || (email.find('.') == string::npos) || (email.find(' ') != string::npos)) {
             cout << email << " is invalid." << endl;
@@ -136,36 +120,43 @@ void Roster::printInvalidEmails() {
     }
 }
 
+//print students according to a specified enumerated degree program
 void Roster::printByDegreeProgram(DegreeProgram degreeProgram) { 
 
-    for (int i = 0; i < numRoster; i++) {
-        if (this->classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
+    for (int i = 0; i < index; i++) {
+        if (classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
             classRosterArray[i]->print();
         }
     }
 }
 
+//remove an individual student and output an error if a student id was not found
 void Roster::remove(string studentID) {
-    for (int i = 0; i < numRoster; i++) {
-        if ((classRosterArray[i] != nullptr) && (classRosterArray[i]->GetStudentID() == studentID)) {
-            delete classRosterArray[i];
+    for (int i = 0; i <= index; i++) {
+        
+        if (classRosterArray[i] == nullptr) {
+            cout << "No student record found" << endl;
+        }
+        else if (this->classRosterArray[i]->GetStudentID() == studentID) {
             classRosterArray[i] = nullptr;
             cout << "Student " << studentID << " was removed." << endl;
-            numRoster--;
-            for (i = i; i < numRoster; i++) {
+
+            //update roster
+            index--;
+            for (i = i; i <= index; i++) {
                 classRosterArray[i] = classRosterArray[i + 1];
             }
-        }  
-    }
-    cout << "No student record found for " << studentID << endl;
+        }
+        
+    }    
 }
 
+//destructor frees up memory allocation
 Roster::~Roster() {
 
-    for (int i = 0; i < numRoster; i++) {
+    for (int i = 0; i < index; i++) {
         delete classRosterArray[i];
+        classRosterArray[i] = nullptr;
     }
-cout << "Memory released" << endl;
-
 }
 

@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 
+//Step C
 enum class DegreeProgram { SECURITY, NETWORK, SOFTWARE };
 
 

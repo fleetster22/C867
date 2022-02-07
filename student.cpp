@@ -1,13 +1,12 @@
 #include <string>
 #include <array>
-#include <cstdlib>
 #include <iostream>
 #include "student.h"
 
 using namespace std;
 
-
-
+//Step D
+//default constructor
 Student::Student() {
     this->studentID = "";
     this->firstName = "";
@@ -19,6 +18,7 @@ Student::Student() {
 
 }
 
+//constructor with parameters
 Student::Student(string studentID, string firstName, string lastName, string emailAddress,
     int age, int courseDays[], DegreeProgram degreeProgram) {
 
@@ -28,14 +28,10 @@ Student::Student(string studentID, string firstName, string lastName, string ema
     this->emailAddress = emailAddress;
     this->age = age;
     for (int i = 0; i < numCourses; i++) this->courses[i] = courseDays[i];
-        //this->daysInCourse1 = daysInCourse1;
-        //this->daysInCourse2 = daysInCourse2;
-        //this->daysInCourse3 = daysInCourse3;
     this->degreeProgram = degreeProgram;
-    
 }
 
-
+//class destructor
     Student::~Student() {
     }
 
@@ -88,6 +84,7 @@ Student::Student(string studentID, string firstName, string lastName, string ema
         return this->degreeProgram;
     }
 
+    //enum to string conversion
     void Student::print() {
         string degree;
 
@@ -101,13 +98,13 @@ Student::Student(string studentID, string firstName, string lastName, string ema
             degree = "SECURITY";
         }
         
-
+//print tab-separated data output - Step E3c
         cout << GetStudentID() << "\t";
         cout << "First Name: " << GetFirstName() << "\t";
         cout << "Last Name: " << GetLastName() << "\t";
         cout << "Email: " << GetEmail() << "\t";
         cout << "Age: " << GetAge() << "\t";
-        cout << "daysInCourse: { " << courses[0] << ", " << courses[1] << ", " << courses[2] << " }" << "\t";
+        cout << "daysInCourse: { " << GetCourseDays()[0] << ", " << GetCourseDays()[1] << ", " << GetCourseDays()[2] << " }" << "\t";
         cout << "Degree Program: " << degree;
 
         cout << endl;
@@ -116,5 +113,4 @@ Student::Student(string studentID, string firstName, string lastName, string ema
 
 
 
-//for (int i = 0; i < numOfDaySize; i++) this->numOfDays[i] = 0;
-//for (int i = 0; i < numOfDaySize; i++) this->numOfDays[i] = numOfDays[i];
+
